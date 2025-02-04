@@ -1,0 +1,27 @@
+
+#add-book {
+    color:brown;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 30 px;
+    padding: 10 px;
+    font-size: 16px;
+    color: black
+}
+.sort-options a {
+    text-decoration: none;
+    gap: 10px;
+    color: blueviolet;
+    padding: 10px;
+}
+
+footer {
+    flex: 0 0 auto;
+    color:black;
+    text-align: center;
+}
