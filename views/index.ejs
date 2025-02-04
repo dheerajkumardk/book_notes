@@ -2,7 +2,13 @@
 
 <h1> Book Notes </h1>
 
-
+<a href="books/new" id="add-book"> Add a new book </a>
+<div class="sort-options">
+    <p>Sort By:</p>
+    <a href="/books?sort=title"> Title </a>
+    <a href="books?sort=date"> Date </a>
+    <a href="books?sort=rating"> Rating </a>
+</div>
 
 <% if (!locals.books) { %>
     <h3>No books found</h3>

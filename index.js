@@ -18,9 +18,23 @@ db.connect();
 
 let books = [];
 
-app.get("/", async (req, res) => {
+// GET /books -> list of all books read sorted by title, date_read, rating
+app.get(["/", "/books"], async (req, res) => {
+    const sort = req.query.sort;
+    let query = "SELECT * FROM books";  
+    console.log("sort: ", sort);
+    
+    // Sorting the books
+    if (sort == 'title') {
+        query += " ORDER by title ASC";
+    } else if (sort == 'date') {
+        query += " ORDER by date_read DESC";
+    } else if (sort == 'rating') {
+        query += " ORDER by rating DESC";
+    }
+
     try {
-        const result = await db.query("SELECT * FROM books");
+        const result = await db.query(query);
         books = result.rows;
     } catch (err) {
         console.log(err);
