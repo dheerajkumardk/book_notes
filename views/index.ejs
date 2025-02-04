@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs'); %>
+
+<h1> Book Notes </h1>
+
+
+
+<% if (!locals.books) { %>
+    <h3>No books found</h3>
+<% } %>
+
+<% locals.books.forEach((book) => { %>
+    <h2> <%= book.title %> By <%= book.author %> </h2>
+    <p> Date Read: <%= book.date_read %>. How satisfied: <%= book.rating %> </p>
+    <p> <%= book.notes %> </p>
+    
+<% }) %>
+
+<%- include('partials/footer.ejs');  %>
