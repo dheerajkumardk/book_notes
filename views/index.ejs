@@ -12,13 +12,25 @@
 
 <% if (!locals.books) { %>
     <h3>No books found</h3>
-<% } %>
+<% } else { %>
 
-<% locals.books.forEach((book) => { %>
-    <h2> <%= book.title %> By <%= book.author %> </h2>
-    <p> Date Read: <%= book.date_read %>. How satisfied: <%= book.rating %> </p>
-    <p> <%= book.notes %> </p>
-    
-<% }) %>
+    <ul class="book-list">
+        <% locals.books.forEach((book) => { %>
+            <li class="book-item">
+                <a href="/books/<%= book.id %> ">
+                    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="<%= book.title %> Cover" >
+                </a>
+                <a href="/books/<%= book.id %> "> 
+                    <%= book.title.toUpperCase()  %> - By <%= book.author.toUpperCase() %>
+                </a>
+                <p> Date Read: <%= book.date_read.toLocaleDateString() %>. How satisfied: <%= book.rating %> </p>
+                <p> <%= book.notes %> </p>
+            </li>
+        <% }) %>
+        
+    </ul>
+
+
+<% } %>
 
 <%- include('partials/footer.ejs');  %>
