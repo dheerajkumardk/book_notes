@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs'); %>
+
+<h2>
+    This is the book page!
+</h2>
+
+<% if (locals.book) { %>
+
+    <div class="book-card">
+        <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="<%= book.title %> Cover">
+        <h2> <%= book.title.toUpperCase() %> </h2>
+        <h3> By <%= book.author.toUpperCase()  %> </h3>
+        <p><strong>Date Read: <%= book.date_read.toLocaleDateString() %></strong></p>
+        <p><strong>Rating: <%= book.rating %>/10</strong></p>
+        <p>Notes: <%= book.notes %></p>
+        <a href="/books">Back to all books</a>
+        
+    </div>
+
+    <% } else { %>
+    <h2>No book found</h2>
+<% } %>
+
+<%- include('partials/footer.ejs'); %>
+

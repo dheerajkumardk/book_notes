@@ -25,7 +25,6 @@ let books = [];
 app.get(["/", "/books"], async (req, res) => {
     const sort = req.query.sort;
     let query = "SELECT * FROM books";  
-    console.log("sort: ", sort);
     
     // Sorting the books
     if (sort == 'title') {
@@ -61,11 +60,14 @@ app.get("/books/:id", async (req, res) => {
     let book;
     try {
         const result = await db.query("SELECT * FROM books WHERE id = $1", [id]);
-        book = result.rows;
+        book = result.rows[0];
     } catch (err) {
         console.log(err);
     }
     console.log("book: ", book);
+    res.render("book.ejs", {
+        book: book
+    });
 });
 
 // GET    /books/:id/edit -> render a form to edit informations for the book
