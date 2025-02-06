@@ -55,6 +55,18 @@
     color: #666;
 }
 
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: red; /* 491f52 */
+    color: #333;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
 .sort-options {
     display: flex;
     align-items: center;
@@ -63,11 +75,66 @@
     font-size: 16px;
     color: black
 }
+
 .sort-options a {
     text-decoration: none;
     gap: 10px;
     color: blueviolet;
     padding: 10px;
+}
+
+/* Book Card */
+.book-card {
+    max-width: 600px; /* Large card */
+    margin: 50px auto; /* Center it */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background */
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    text-align: center;
+}
+
+.book-card img {
+    width: 100%; /* Make image responsive */
+    max-width: 250px; /* Limit max size */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.book-card h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.book-card h3 {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.book-card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.book-card a:hover {
+    background-color: #0056b3;
+}
 }
 
 footer {
