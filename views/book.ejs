@@ -13,6 +13,13 @@
         <p><strong>Date Read: <%= book.date_read.toLocaleDateString() %></strong></p>
         <p><strong>Rating: <%= book.rating %>/10</strong></p>
         <p>Notes: <%= book.notes %></p>
+
+        <!-- Edit Button, Delete Button -->
+        <a href="/books/<%= book.id %>/edit"> Edit </a>
+
+        <form class="delete-form" action="/books/<%= book.id %>/delete?_method=DELETE" method="POST">
+            <button type="submit"> Delete </button>
+        </form>
         <a href="/books" class="back-link">Back to all books</a>
         
     </div>
