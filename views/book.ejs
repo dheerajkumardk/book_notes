@@ -6,14 +6,14 @@
 
 <% if (locals.book) { %>
 
-    <div class="book-card">
+    <div class="book-item">
         <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="<%= book.title %> Cover">
         <h2> <%= book.title.toUpperCase() %> </h2>
         <h3> By <%= book.author.toUpperCase()  %> </h3>
         <p><strong>Date Read: <%= book.date_read.toLocaleDateString() %></strong></p>
         <p><strong>Rating: <%= book.rating %>/10</strong></p>
         <p>Notes: <%= book.notes %></p>
-        <a href="/books">Back to all books</a>
+        <a href="/books" class="back-link">Back to all books</a>
         
     </div>
 
