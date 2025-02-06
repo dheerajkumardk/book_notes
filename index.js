@@ -51,10 +51,20 @@ app.get(["/", "/books"], async (req, res) => {
 
 // GET    /books/new      -> render a form to add a new book
 app.get("/books/new", (req, res) => {
-    res.send("<h2> Let's add a new book to the database </h2>");
+    res.render("newbook.ejs");
 });
 
-// POST   /books          -> add a new book to the database
+// POST /books-> add a new book to the database
+app.post("/books", async (req, res) => {
+    const {title, author, isbn, date_read, rating, notes} = req.body;
+
+    try {
+        const result = await db.query("INSERT INTO books (title, author, isbn, date_read, rating, notes) VALUES ($1, $2, $3, $4, $5, $6)", [title, author, isbn, date_read, rating, notes]);
+    } catch (err) {
+        console.log(err);
+    }
+    res.redirect("/books");
+});
 
 // GET /books/:id -> information about the book by id
 app.get("/books/:id", async (req, res) => {
@@ -101,6 +111,16 @@ app.put("/books/:id/edit", async (req, res) => {
 });
 
 // DELETE /books/:id      -> delete the entry from the database
+app.delete("/books/:id/delete", async (req, res) => {
+    const id = req.params.id;
+    
+    try {
+        const result = await db.query("DELETE FROM books WHERE id = $1", [id]);
+        res.redirect("/books");
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
